@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   let wordBank = [
     {
       name: "Photosynthesis",
-      teks: "Biology",
+      teks: "Nature and Environments",
       definitions: {
-          easy: "Process used by plants to convert light into energy.",
+          easy: "Process used by plants to convert light energy into food.",
           medium: "The process by which green plants and some other organisms use sunlight to synthesize foods from carbon dioxide and water.",
           hard: "A complex process where chlorophyll in plant cells captures light energy and converts it into chemical energy, involving multiple stages including the Calvin cycle."
       }
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         name: "Producer",
         teks: "Nature and Environments",
         definitions: {
-            easy: "Living things that make their own food from sunlight.",
+            easy: "Living things that make their own food from sunlight. Plants, trees and grass are examples of it.",
             medium: "Organisms that make their own food by absorbing the sun’s light. They make their own food.",
             example: "Plants making food through photosynthesis"
         }
@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
         name: "Pollination",
         teks: "Nature and Environments",
         definitions: {
-            easy: "The process of moving pollen to flowers to make seeds.",
-            medium: "The process by which pollen is transferred to the female reproductive organs of a plant, enabling fertilization.",
+            easy: "The process of moving pollen to flowers to make seeds, often done by birds and insects.",
+            medium: "The process by which pollen is transferred to the female reproductive organs of a plant, enabling fertilization. Often done by birds and insects.",
             example: "Bees transferring pollen among flowers"
         }
         },
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         name: "Ecosystems",
         teks: "Nature and Environments",
         definitions: {
-          easy: "Places where living things and their surroundings work together.",
+          easy: "Places where living things and non-living things interact within their habitat.",
           medium: "Communities of living organisms and their physical environment, interacting as a system.",
           example: "Rainforest Ecosystem"
         }
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         name: "Pollution",
         teks: "Nature and Environments",
         definitions: {
-          easy: "Adding harmful things to the environment, like trash or chemicals.",
+          easy: "Adding harmful things to the environment, like trash, chemicals, and harmful gases.",
           medium: "The introduction of harmful substances or products into the environment, negatively affecting wildlife and ecosystems.",
           example: "Plastic Pollution in Oceans"
         }
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
         name: "Sustainable Practices",
         teks: "Nature and Environments",
         definitions: {
-          easy: "Using resources in a way that doesn't run out and helps the Earth.",
+          easy: "Using natural resources in a way that doesn't run out and helps the Earth.",
           medium: "Methods of using resources in a way that does not deplete them and preserves the environment for future generations.",
           example: "Renewable Energy Sources like Wind and Solar"
         }
@@ -225,6 +225,167 @@ document.addEventListener('DOMContentLoaded', function () {
           easy: "The growth of cities and towns, where more people live and work in one place.",
           medium: "The process by which towns and cities are formed and become larger as more people begin living and working in central areas, often leading to habitat destruction.",
           example: "Expansion of Cities and Loss of Green Spaces"
+        }
+      },
+      {
+        name: "Matter",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Anything that has mass and takes up space."
+        }
+      },
+      {
+        name: "Classify",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "To sort or organize things into different groups."
+        }
+      },
+      {
+        name: "Measurable",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Something that can be measured or quantified."
+        }
+      },
+      {
+        name: "Testable",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Something that can be tested or experimented on."
+        }
+      },
+      {
+        name: "Observable",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Something that can be seen or noticed with your 5 senses."
+        }
+      },
+      {
+        name: "Physical Properties",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Features of matter that you can see or measure using your 5 senses or tools."
+        }
+      },
+      {
+        name: "Mass",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "How much matter an object has."
+        }
+      },
+      {
+        name: "Magnetism",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "The force that makes certain things attract or repel each other, based on the poles of the magnet and magnetic metals."
+        }
+      },
+      {
+        name: "Physical State",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "The form matter takes, like solid (hard), liquid (water), or gas (like air)."
+        }
+      },
+      {
+        name: "Solid",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "A form of matter that has a fixed shape and doesn't flow."
+        }
+      },
+      {
+        name: "Liquid",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "A form of matter that flows and takes the shape of its container but keeps the same volume."
+        }
+      },
+      {
+        name: "Gas",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "A form of matter that can spread out to fill any space. Cannot be seen most of the times, particles have a lot of energy."
+        }
+      },
+      {
+        name: "Relative Density",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Whether something is heavier or lighter compared to water, deciding if it will sink or float."
+        }
+      },
+      {
+        name: "Sinking and Floating",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "If something goes down in water (sinks) or stays on the top (floats)."
+        }
+      },
+      {
+        name: "Solubility",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "How well a substance can dissolve in water."
+        }
+      },
+      {
+        name: "Water",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Used as a standard to test sinking, floating, and solubility."
+        }
+      },
+      {
+        name: "Conduct",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "To let energy flow through something easily, metals are great at this."
+        }
+      },
+      {
+        name: "Insulate",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "To not let energy go through something easily, it stops energy flow."
+        }
+      },
+      {
+        name: "Thermal Energy",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "The energy that comes from heat."
+        }
+      },
+      {
+        name: "Electric Energy",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "The power that comes from the flow of electricity."
+        }
+      },
+      {
+        name: "Mixtures",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Things mixed together, materials keep their physical properties, still easy to separate. Like cereal with milk - you can see and pick out each part."
+        }
+      },
+      {
+        name: "Solutions",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "When something (like sugar) mixes completely with something else (like water) and you can't see it anymore. Particles are mixed very well."
+        }
+      },
+      {
+        name: "Dissolve",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "Like when sugar or salt disappears in water. It's still there, but you can't see the particles as they are spread out evenly."
         }
       }      
   ];
@@ -268,16 +429,19 @@ document.addEventListener('DOMContentLoaded', function () {
       // Display question and choices
       const gameDiv = document.getElementById('game');
       gameDiv.innerHTML = `
-          <div class="fs-3 justify-content-center">${selectedWord.name}</div>
-          <div>
-              ${choices.map((choice, index) => `
-                  <div class="form-check">
-                      <input class="form-check-input btn-outline-dark" type="radio" name="definition" id="choice${index}">
-                      <label class="form-check-label" for="choice${index}">${choice}</label>
-                  </div>
-              `).join('')}
-          </div>
-          <button class="btn btn-primary mt-3" onclick="checkAnswer('${selectedWord.name}', '${correctDefinition}')">Submit</button>
+      <div class="fs-3 justify-content-center">${selectedWord.name}</div>
+      <div>
+          ${choices.map((choice, index) => `
+              <div class="form-check">
+                  <input class="form-check-input btn-outline-dark" type="radio" name="definition" id="choice${index}">
+                  <label class="form-check-label" for="choice${index}">${choice}</label>
+              </div>
+          `).join('')}
+      </div>
+      <div class="d-flex justify-content-start mt-3"> <!-- Flex container for buttons -->
+          <button class="btn btn-primary" onclick="checkAnswer('${selectedWord.name}', '${correctDefinition}')">Submit</button>
+          <button id="nextButton" class="btn btn-secondary ml-2" onclick="nextQuestion()" disabled>Next Question</button>
+      </div>
       `;
   }
 
@@ -295,43 +459,54 @@ document.addEventListener('DOMContentLoaded', function () {
   function checkAnswer(wordName, correctDefinition) {
     const allRadioButtons = document.querySelectorAll('.form-check-input');
     const selected = document.querySelector('input[name="definition"]:checked');
-    const allChoices = document.querySelectorAll('.form-check-label');
+    const submitButton = document.querySelector('.btn-primary'); // Reference to the submit button
 
-    let isCorrect = false;
-    allChoices.forEach(label => {
-        if (label.textContent === correctDefinition) {
-            label.classList.add('text-success', 'fw-bold'); // Highlight correct answer
+    if (selected) {
+        let isCorrect = false;
+        const selectedLabel = selected.nextElementSibling;
+
+        if (selectedLabel.textContent === correctDefinition) {
+            isCorrect = true;
+            score++; // Increment score for a correct answer
+            wordBank = wordBank.filter(word => word.name !== wordName); // Remove the word from the word bank if answered correctly
         } else {
-            label.classList.add('text-muted'); // Dim other answers
+            let delay = Math.floor(Math.random() * 6) + 5; // Random delay between 5 to 10 questions for pending questions
+            let currentQuestionIndex = totalQuestions + delay;
+            pendingQuestions.splice(currentQuestionIndex, 0, wordBank.find(word => word.name === wordName)); // Add incorrect word to pending questions
         }
-    });
 
-    if (selected && selected.nextElementSibling.textContent === correctDefinition) {
-        score++;
-        isCorrect = true;
-        // Remove the word from the word bank
-        wordBank = wordBank.filter(word => word.name !== wordName);
-    } else {
-        // Add the word to pending questions to be asked later
-        let delay = Math.floor(Math.random() * 6) + 5; // Random delay between 5 to 10 questions
-        let currentQuestionIndex = totalQuestions + delay;
-        pendingQuestions.splice(currentQuestionIndex, 0, wordBank.find(word => word.name === wordName));
+        highlightAnswer(selectedLabel, isCorrect);
+
+        allRadioButtons.forEach(radio => {
+            radio.disabled = true; // Disable all radio buttons after an answer is submitted
+        });
+
+        if (!isCorrect) {
+            submitButton.disabled = true; // Disable the submit button if the answer is incorrect
+            document.getElementById('nextButton').disabled = false; // Enable the next button for incorrect answers
+        }
+
+        totalQuestions++;
+        updateScoreDisplay(); // Update the displayed score
+
+        // Integrate tower logic based on the correctness of the answer
+        answer(isCorrect); // Call the tower logic's answer function
+
     }
+}
 
-    highlightAnswer(selected.nextElementSibling, isCorrect);
 
-    // Disable all radio buttons after an answer is submitted
-    allRadioButtons.forEach(radio => {
-        radio.disabled = true;
-    });
-
-    totalQuestions++;
-    updateScoreDisplay();
-
-    if (!isCorrect) {
+function highlightAnswer(label, isCorrect) {
+    label.classList.add(isCorrect ? 'text-success' : 'text-danger', 'fw-bold');
+    if (isCorrect) {
+        setTimeout(nextQuestion, 500); // Proceed to next question after half a second
+    } else {
         document.getElementById('nextButton').disabled = false; // Enable the next button for incorrect answers
     }
-  }
+}
+
+// Additional functions like nextQuestion, updateScoreDisplay, etc. should be defined as per your application's needs.
+
 
 
 
@@ -356,8 +531,99 @@ document.addEventListener('DOMContentLoaded', function () {
   const gameDiv = document.getElementById('game');
   const gameContainerDiv = document.getElementById('game-container');
   gameDiv.insertAdjacentHTML('beforebegin', `<p id="score" class="text-center">Score: ${score} / ${totalQuestions}</p>`);
-  gameContainerDiv.insertAdjacentHTML('afterend', `<button id="nextButton" class="btn btn-secondary mt-3" onclick="nextQuestion()" disabled>Next Question</button>`);
+  // gameContainerDiv.insertAdjacentHTML('afterend', `<button id="nextButton" class="btn btn-secondary mt-3" onclick="nextQuestion()" disabled>Next Question</button>`);
 });
+
+
+// ***********************************************************************************
+// Tower game logic
+let tower = [];
+let correctStreak = 0;
+let incorrectStreak = 0;
+let multiplier = 1;
+let floorCount = 0;
+const multiplierBase = 1; // Base multiplier value
+
+function updateTower() {
+  const towerElement = document.getElementById('tower');
+  towerElement.innerHTML = ''; // Clear existing tower
+
+  // Update the multiplier and floor count display
+  const multiplierDisplay = document.getElementById('multiplier-display');
+  if (multiplierDisplay) {
+      multiplierDisplay.textContent = `Multiplier: x${multiplier} | Floors: ${floorCount}`;
+  }
+
+  tower.forEach(floor => {
+      const floorElement = document.createElement('div');
+      floorElement.classList.add('floor', 'bg-success', 'my-1');
+      if (floor.damaged) {
+          floorElement.classList.remove('bg-success');
+          floorElement.classList.add('bg-danger');
+      }
+      towerElement.appendChild(floorElement);
+  });
+}
+
+
+function addFloor(multiplier) {
+  for (let i = 0; i < multiplier; i++) {
+      tower.push({ damaged: false });
+      floorCount++; // Increment floor count for each added floor
+  }
+  updateTower();
+}
+
+function removeFloor() {
+  if (tower.length > 0) {
+      tower.pop();
+      floorCount = Math.max(0, floorCount - 1); // Decrement floor count, ensuring it doesn't go below 0
+      updateTower();
+  }
+}
+
+function damageFloor() {
+    if (tower.length > 0) {
+        tower[tower.length - 1].damaged = true;
+        updateTower();
+    }
+}
+
+
+function answer(correct) {
+    if (correct) {
+        correctStreak++;
+        incorrectStreak = 0;
+        // Remove damage if exists
+        if (tower.length > 0 && tower[tower.length - 1].damaged) {
+            tower[tower.length - 1].damaged = false;
+        }
+        // Update multiplier based on streak
+        if (correctStreak >= 20) multiplier = 5;
+        else if (correctStreak >= 15) multiplier = 4;
+        else if (correctStreak >= 10) multiplier = 3;
+        else if (correctStreak >= 5) multiplier = 2;
+        else multiplier = 1;
+
+        addFloor(multiplier);
+    } else {
+        correctStreak = 0;
+        incorrectStreak++;
+        // Apply damage or remove a floor
+        if (incorrectStreak >= 2) {
+            removeFloor();
+            incorrectStreak = 0; // Reset incorrect streak after removing a floor
+        } else {
+            damageFloor();
+        }
+    }
+}
+
+// Modify the checkAnswer function to use the answer(correct) function from tower logic
+// Replace the existing checkAnswer implementation with the integrated one that updates the tower based on correctness
+
+// Initial tower update
+updateTower();
 
 
 /*!
@@ -365,7 +631,6 @@ document.addEventListener('DOMContentLoaded', function () {
  * Copyright 2011-2023 The Bootstrap Authors
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  */
-
 (() => {
     'use strict'
   
@@ -440,4 +705,77 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     })
 })()
- 
+
+
+// TOWER GAME
+// let tower = [];
+// let correctStreak = 0;
+// let incorrectStreak = 0;
+// let multiplier = 1;
+
+// function updateTower() {
+//     const towerElement = document.getElementById('tower');
+//     towerElement.innerHTML = ''; // Clear existing tower
+//     tower.forEach(floor => {
+//         const floorElement = document.createElement('div');
+//         floorElement.classList.add('floor', 'bg-success', 'my-1');
+//         if (floor.damaged) {
+//             floorElement.classList.remove('bg-success');
+//             floorElement.classList.add('bg-danger');
+//         }
+//         towerElement.appendChild(floorElement);
+//     });
+// }
+
+// function addFloor(multiplier) {
+//     for (let i = 0; i < multiplier; i++) {
+//         tower.push({ damaged: false });
+//     }
+//     updateTower();
+// }
+
+// function damageFloor() {
+//     if (tower.length > 0) {
+//         tower[tower.length - 1].damaged = true;
+//         updateTower();
+//     }
+// }
+
+// function removeFloor() {
+//     if (tower.length > 0) {
+//         tower.pop();
+//         updateTower();
+//     }
+// }
+
+// function answer(correct) {
+//     if (correct) {
+//         correctStreak++;
+//         incorrectStreak = 0;
+//         // Remove damage if exists
+//         if (tower.length > 0 && tower[tower.length - 1].damaged) {
+//             tower[tower.length - 1].damaged = false;
+//         }
+//         // Update multiplier based on streak
+//         if (correctStreak >= 20) multiplier = 5;
+//         else if (correctStreak >= 15) multiplier = 4;
+//         else if (correctStreak >= 10) multiplier = 3;
+//         else if (correctStreak >= 5) multiplier = 2;
+//         else multiplier = 1;
+
+//         addFloor(multiplier);
+//     } else {
+//         correctStreak = 0;
+//         incorrectStreak++;
+//         // Apply damage or remove a floor
+//         if (incorrectStreak >= 2) {
+//             removeFloor();
+//             incorrectStreak = 0; // Reset incorrect streak after removing a floor
+//         } else {
+//             damageFloor();
+//         }
+//     }
+// }
+
+// // Initial tower update
+// updateTower();
