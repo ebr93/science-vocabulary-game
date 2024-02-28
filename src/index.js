@@ -1,3 +1,17 @@
+let score = 0;
+let totalQuestions = 0;
+const levels = ['easy', 'medium', 'hard'];
+let currentLevel = 'easy'; // Default level
+let pendingQuestions = []; // Store words for later
+let currentQuestion = {
+  word: null,
+  correctDefinition: null
+};
+
+  // let currentWord;
+  // let correctDefinition = '';
+const submitButton = document.querySelector('#submitButton');
+const nextButton = document.querySelector('#nextButton')
 
 document.addEventListener('DOMContentLoaded', function () {
   let wordBank = [
@@ -227,313 +241,367 @@ document.addEventListener('DOMContentLoaded', function () {
           example: "Expansion of Cities and Loss of Green Spaces"
         }
       },
+   
+      
+
       {
         name: "Matter",
         teks: "Properties of Matter",
         definitions: {
-          easy: "Anything that has mass and takes up space."
+          easy: "Anything that has mass and takes up space.",
+          medium: "Substances that occupy physical space and possess mass, comprising all tangible materials.",
+          example: "Rocks, Metals, and Gases"
         }
       },
       {
         name: "Classify",
         teks: "Properties of Matter",
         definitions: {
-          easy: "To sort or organize things into different groups."
+          easy: "To sort or organize things into different groups, based on its physical attributes or properties of matter.",
+          medium: "The systematic arrangement of materials based on shared characteristics or properties.",
+          example: "Sorting Rocks by Size or Minerals by Hardness"
         }
       },
       {
         name: "Measurable",
         teks: "Properties of Matter",
         definitions: {
-          easy: "Something that can be measured or quantified."
+          easy: "Something that can be measured or quantified using units",
+          medium: "Quantifiable aspects of matter that can be determined through empirical means.",
+          example: "Measuring the Mass of a Substance in Grams"
         }
       },
       {
         name: "Testable",
         teks: "Properties of Matter",
         definitions: {
-          easy: "Something that can be tested or experimented on."
+          easy: "Something that can be tested or experimented on.",
+          medium: "Characteristics of substances that can be verified through experimental procedures.",
+          example: "Testing the Boiling Point of Water"
         }
       },
       {
         name: "Observable",
         teks: "Properties of Matter",
         definitions: {
-          easy: "Something that can be seen or noticed with your 5 senses."
+          easy: "Something that can be seen or noticed with your 5 senses.",
+          medium: "Physical attributes of substances that are perceptible through sensory experience.",
+          example: "Observing the Color Change of a Chemical Reaction"
         }
       },
       {
         name: "Physical Properties",
         teks: "Properties of Matter",
         definitions: {
-          easy: "Features of matter that you can see or measure using your 5 senses or tools."
+          easy: "Features of matter that you can see or measure using your 5 senses or tools.",
+          medium: "Inherent attributes of substances that can be observed or measured without altering their chemical structure.",
+          example: "Density, Melting Point, and Boiling Point"
         }
       },
       {
         name: "Mass",
         teks: "Properties of Matter",
         definitions: {
-          easy: "How much matter an object has."
+          easy: "How much matter an object has, the more matter the more mass.",
+          medium: "The quantity of matter contained within an object, often measured in kilograms or grams.",
+          example: "Measuring the Mass of a Rock with a Balance"
         }
       },
       {
         name: "Magnetism",
         teks: "Properties of Matter",
         definitions: {
-          easy: "The force that makes certain things attract or repel each other, based on the poles of the magnet and magnetic metals."
+          easy: "The force that makes certain things attract or repel each other. Iron, nickel, cobalt and steel are the only metals affected by this force.",
+          medium: "A physical phenomenon produced by the motion of electric charge, resulting in attractive and repulsive forces between objects.",
+          example: "Using a Magnet to Separate Iron Filings from Sand"
         }
       },
       {
         name: "Physical State",
         teks: "Properties of Matter",
         definitions: {
-          easy: "The form matter takes, like solid (hard), liquid (water), or gas (like air)."
+          easy: "The form matter takes, like solid (hard), liquid (water), or gas (like air).",
+          medium: "The distinct forms that different phases of matter take on, characterized by structural differences.",
+          example: "Water Existing as Ice, Liquid, and Vapor"
         }
       },
       {
         name: "Solid",
         teks: "Properties of Matter",
         definitions: {
-          easy: "A form of matter that has a fixed shape and doesn't flow."
+          easy: "A form of matter that has a fixed shape and doesn't flow. Particles tightly packed.",
+          medium: "A state of matter characterized by structural rigidity and resistance to changes in shape or volume.",
+          example: "A Rock Retaining Its Shape Under Pressure"
         }
       },
       {
         name: "Liquid",
         teks: "Properties of Matter",
         definitions: {
-          easy: "A form of matter that flows and takes the shape of its container but keeps the same volume."
+          easy: "A form of matter that flows and takes the shape of its container but keeps the same volume. Particles are close together and always moving.",
+          medium: "A fluid state of matter that conforms to the shape of its container but retains a constant volume independent of pressure.",
+          example: "Water Taking the Shape of Its Glass"
         }
       },
       {
         name: "Gas",
         teks: "Properties of Matter",
         definitions: {
-          easy: "A form of matter that can spread out to fill any space. Cannot be seen most of the times, particles have a lot of energy."
+          easy: "A form of matter that can spread out to fill any space. Cannot be seen most of the times, particles have a lot of energy.",
+          medium: "A state of matter consisting of particles that have neither a defined volume nor shape, expanding to fill its container.",
+          example: "Air Expanding to Fill a Balloon"
         }
       },
       {
         name: "Relative Density",
         teks: "Properties of Matter",
         definitions: {
-          easy: "Whether something is heavier or lighter compared to water, deciding if it will sink or float."
-        }
-      },
-      {
-        name: "Sinking and Floating",
-        teks: "Properties of Matter",
-        definitions: {
-          easy: "If something goes down in water (sinks) or stays on the top (floats)."
+          easy: "Whether something is something sinks or floats on water. More dense sinks, less dense will float.",
+          medium: "A measure of how dense a substance is in relation to a reference substance, typically water.",
+          example: "An Apple Floating in Water and a Rock Sinking"
         }
       },
       {
         name: "Solubility",
         teks: "Properties of Matter",
         definitions: {
-          easy: "How well a substance can dissolve in water."
+          easy: "How well a substance can dissolve in water.",
+          medium: "The ability of a substance to dissolve in a solvent, forming a homogeneous solution.",
+          example: "Sugar Dissolving in Water"
         }
       },
       {
         name: "Water",
         teks: "Properties of Matter",
         definitions: {
-          easy: "Used as a standard to test sinking, floating, and solubility."
+          easy: "Material used as a standard to test sinking, floating, and solubility.",
+          medium: "A universal solvent used in experiments to gauge various physical properties and reactions.",
+          example: "Testing Objects for Buoyancy in Water"
         }
       },
       {
         name: "Conduct",
         teks: "Properties of Matter",
         definitions: {
-          easy: "To let energy flow through something easily, metals are great at this."
+          easy: "To let energy flow through something easily, metals are great at allowing energy flow.",
+          medium: "The property of a material that allows it to transmit heat or electricity with minimal resistance.",
+          example: "Copper Wires Conducting Electricity in a Circuit"
         }
       },
       {
         name: "Insulate",
         teks: "Properties of Matter",
         definitions: {
-          easy: "To not let energy go through something easily, it stops energy flow."
+          easy: "To not let energy go through or stop it, it stops energy flow.",
+          medium: "Materials that resist the flow of heat or electricity, used to prevent energy transfer.",
+          example: "Rubber Gloves Insulating Hands from Electric Shock"
         }
       },
       {
         name: "Thermal Energy",
         teks: "Properties of Matter",
         definitions: {
-          easy: "The energy that comes from heat."
+          easy: "The energy that comes from heat.",
+          medium: "The internal energy present in a system due to its temperature, a form of kinetic energy at the atomic level.",
+          example: "Feeling Warmth from a Heated Stove"
         }
       },
       {
         name: "Electric Energy",
         teks: "Properties of Matter",
         definitions: {
-          easy: "The power that comes from the flow of electricity."
+          easy: "The energy that comes from the flow of electricity.",
+          medium: "Energy made available by the flow of electric charge through a conductor.",
+          example: "Lighting a Bulb with Electrical Current"
+        }
+      },
+      {
+        name: "Light Energy",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "The energy that is made of light, you can see it.",
+          medium: "A form of electromagnetic radiation that is visible to the human eye, perceived as light.",
+          example: "Sunlight Illuminating a Room"
+        }
+      },
+      {
+        name: "Sound Energy",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "The energy that comes from vibrations, you can hear it, it travels in waves.",
+          medium: "Energy carried by sound waves, typically perceived through the sense of hearing.",
+          example: "The Vibrations from a Ringing Bell"
+        }
+      },
+      {
+        name: "Mechanical Energy",
+        teks: "Properties of Matter",
+        definitions: {
+          easy: "The energy of movement, anything that moves has this energy.",
+          medium: "The sum of potential and kinetic energy in an object that is used to do work.",
+          example: "A Winding Spring in a Toy Car"
         }
       },
       {
         name: "Mixtures",
         teks: "Properties of Matter",
         definitions: {
-          easy: "Things mixed together, materials keep their physical properties, still easy to separate. Like cereal with milk - you can see and pick out each part."
+          easy: "Things mixed together, materials keep their physical properties, still easy to separate. Like cereal with milk - you can see and pick out each part.",
+          medium: "Combinations of two or more substances where each substance retains its chemical properties and can be physically separated.",
+          example: "A salad with lettuce, tomatoes, and cucumbers where each ingredient can still be identified and separated."
         }
       },
       {
         name: "Solutions",
         teks: "Properties of Matter",
         definitions: {
-          easy: "When something (like sugar) mixes completely with something else (like water) and you can't see it anymore. Particles are mixed very well."
+          easy: "When something (like sugar) mixes completely with something else (like water) and you can't see it anymore. Hard to separate.",
+          medium: "Homogeneous mixtures where one substance (solute) is completely dissolved in another (solvent) and cannot be easily separated by physical means.",
+          example: "Saltwater, where the salt is fully dissolved in water and cannot be seen as separate particles."
         }
-      },
-      {
-        name: "Dissolve",
-        teks: "Properties of Matter",
-        definitions: {
-          easy: "Like when sugar or salt disappears in water. It's still there, but you can't see the particles as they are spread out evenly."
-        }
-      }      
+      }       
   ];
-  
 
-  let score = 0;
-  let totalQuestions = 0;
-  const levels = ['easy', 'medium', 'hard'];
-  let currentLevel = 'easy'; // Default level
-  let pendingQuestions = []; // Store words for later
+function getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
 
-  function getRandomElement(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
-  }
-
-  function generateQuestion() {
-      if (pendingQuestions.length > 0 && Math.random() > 0.5) {
-          // Random chance to pick from pending questions
-          selectedWord = pendingQuestions.shift();
-      } else {
-          // Select a random word from the word bank
-          selectedWord = getRandomElement(wordBank);
-      }
-
-      const correctDefinition = selectedWord.definitions[currentLevel];
-
-      let choices = [correctDefinition];
-      // Generate incorrect choices
-      while (choices.length < 4) {
-          const randomWord = getRandomElement(wordBank);
-          const randomDefinition = randomWord.definitions[currentLevel];
-
-          if (!choices.includes(randomDefinition)) {
-              choices.push(randomDefinition);
-          }
-      }
-
-      // Shuffle choices
-      choices.sort(() => Math.random() - 0.5);
-
-      // Display question and choices
-      const gameDiv = document.getElementById('game');
-      gameDiv.innerHTML = `
-      <div class="fs-3 justify-content-center">${selectedWord.name}</div>
-      <div>
-          ${choices.map((choice, index) => `
-              <div class="form-check">
-                  <input class="form-check-input btn-outline-dark" type="radio" name="definition" id="choice${index}">
-                  <label class="form-check-label" for="choice${index}">${choice}</label>
-              </div>
-          `).join('')}
-      </div>
-      <div class="d-flex justify-content-start mt-3"> <!-- Flex container for buttons -->
-          <button class="btn btn-primary" onclick="checkAnswer('${selectedWord.name}', '${correctDefinition}')">Submit</button>
-          <button id="nextButton" class="btn btn-secondary ml-2" onclick="nextQuestion()" disabled>Next Question</button>
-      </div>
-      `;
-  }
-
-
-  function highlightAnswer(label, isCorrect) {
-      label.classList.add(isCorrect ? 'text-success' : 'text-danger', 'fw-bold');
-      if (isCorrect) {
-          setTimeout(nextQuestion, 500); // Proceed to next question after half a second
-      } else {
-          document.getElementById('nextButton').disabled = false; // Enable the next button for incorrect answers
-      }
-  }
-
-
-  function checkAnswer(wordName, correctDefinition) {
-    const allRadioButtons = document.querySelectorAll('.form-check-input');
-    const selected = document.querySelector('input[name="definition"]:checked');
-    const submitButton = document.querySelector('.btn-primary'); // Reference to the submit button
-
-    if (selected) {
-        let isCorrect = false;
-        const selectedLabel = selected.nextElementSibling;
-
-        if (selectedLabel.textContent === correctDefinition) {
-            isCorrect = true;
-            score++; // Increment score for a correct answer
-            wordBank = wordBank.filter(word => word.name !== wordName); // Remove the word from the word bank if answered correctly
-        } else {
-            let delay = Math.floor(Math.random() * 6) + 5; // Random delay between 5 to 10 questions for pending questions
-            let currentQuestionIndex = totalQuestions + delay;
-            pendingQuestions.splice(currentQuestionIndex, 0, wordBank.find(word => word.name === wordName)); // Add incorrect word to pending questions
-        }
-
-        highlightAnswer(selectedLabel, isCorrect);
-
-        allRadioButtons.forEach(radio => {
-            radio.disabled = true; // Disable all radio buttons after an answer is submitted
-        });
-
-        if (!isCorrect) {
-            submitButton.disabled = true; // Disable the submit button if the answer is incorrect
-            document.getElementById('nextButton').disabled = false; // Enable the next button for incorrect answers
-        }
-
-        totalQuestions++;
-        updateScoreDisplay(); // Update the displayed score
-
-        // Integrate tower logic based on the correctness of the answer
-        answer(isCorrect); // Call the tower logic's answer function
-
+function generateQuestion() {
+    let selectedWord;
+    if (pendingQuestions.length > 0 && Math.random() > 0.5) {
+        // Random chance to pick from pending questions
+        console.log(`pending questions ${pendingQuestions}`);
+        selectedWord = pendingQuestions.shift();
+    } else {
+        // Select a random word from the word bank
+        selectedWord = getRandomElement(wordBank);
     }
+
+    console.log(selectedWord);
+    currentQuestion.word = selectedWord;
+
+    console.log(currentQuestion.word);
+
+    currentQuestion.correctDefinition = selectedWord.definitions[currentLevel];
+
+    let choices = [currentQuestion.correctDefinition];
+
+    // Generate incorrect choices
+    while (choices.length < 4) {
+        const randomWord = getRandomElement(wordBank);
+        const randomDefinition = randomWord.definitions[currentLevel];
+
+        if (!choices.includes(randomDefinition)) {
+            choices.push(randomDefinition);
+        }
+    }
+
+    // Shuffle choices
+    choices.sort(() => Math.random() - 0.5);
+
+    // Display question and choices
+    const gameDiv = document.getElementById('game');
+    gameDiv.innerHTML = `
+    <div class="fs-3 justify-content-center">${selectedWord.name}</div>
+    <div>
+        ${choices.map((choice, index) => `
+            <div class="form-check">
+                <input class="form-check-input btn-outline-dark" type="radio" name="definition" id="choice${index}">
+                <label class="form-check-label" for="choice${index}">${choice}</label>
+            </div>
+        `).join('')}
+    </div>
+    `;
 }
 
 
 function highlightAnswer(label, isCorrect) {
-    label.classList.add(isCorrect ? 'text-success' : 'text-danger', 'fw-bold');
-    if (isCorrect) {
-        setTimeout(nextQuestion, 500); // Proceed to next question after half a second
-    } else {
-        document.getElementById('nextButton').disabled = false; // Enable the next button for incorrect answers
-    }
+  label.classList.add(isCorrect ? 'text-success' : 'text-danger', 'fw-bold');
+  if (isCorrect) {
+      submitButton.disabled = true; // Disable the submit button if the answer is incorrect
+      setTimeout(nextQuestion, 1000); // Proceed to next question after half a second
+  } else {
+    submitButton.disabled = true; // Disable the submit button if the answer is incorrect
+    document.getElementById('nextButton').disabled = false; // Enable the next button for incorrect answers
+  }
 }
+
+
+function checkAnswer(wordName, def) {
+  const allRadioButtons = document.querySelectorAll('.form-check-input');
+  const selected = document.querySelector('input[name="definition"]:checked');
+  // const submitButton = document.querySelector('.btn-primary'); // Reference to the submit button
+
+  console.log(wordName);
+  console.log(def);
+
+  if (selected) {
+      let isCorrect = false;
+      const selectedLabel = selected.nextElementSibling;
+
+      if (selectedLabel.textContent === def) {
+          isCorrect = true;
+          score++; // Increment score for a correct answer
+          wordBank = wordBank.filter(word => word.name !== wordName); // Remove the word from the word bank if answered correctly
+      } 
+
+      highlightAnswer(selectedLabel, isCorrect);
+
+      allRadioButtons.forEach(radio => {
+          radio.disabled = true; // Disable all radio buttons after an answer is submitted
+      });
+
+      // this logic is applied in highlightAnswer function
+      // if (!isCorrect) {
+      //     submitButton.disabled = true; // Disable the submit button if the answer is incorrect
+      //     document.getElementById('nextButton').disabled = false; // Enable the next button for incorrect answers
+      // }
+
+      totalQuestions++;
+      updateScoreDisplay(); // Update the displayed score
+
+      // Integrate tower logic based on the correctness of the answer
+      answer(isCorrect); // Call the tower logic's answer function
+  }
+}
+
 
 // Additional functions like nextQuestion, updateScoreDisplay, etc. should be defined as per your application's needs.
 
+function updateScoreDisplay() {
+  document.getElementById('score').innerText = `Score: ${score} / ${totalQuestions}`;
+}
 
-
-
-  function updateScoreDisplay() {
-    document.getElementById('score').innerText = `Score: ${score} / ${totalQuestions}`;
-  }
-
-  function nextQuestion() {
-    // Reset the game area and generate a new question
-    document.getElementById('game').innerHTML = '';
-    generateQuestion();
-    document.getElementById('nextButton').disabled = true; // Disable next button until answer is checked
-  }
-
-  window.checkAnswer = checkAnswer;
-  window.nextQuestion = nextQuestion;
-
-  // Initial call to start the game
+function nextQuestion() {
+  // Reset the game area and generate a new question
+  document.getElementById('game').innerHTML = '';
   generateQuestion();
+  document.getElementById('nextButton').disabled = true; // Disable nextButton until answer is checked
+  submitButton.disabled = false; // Enables submitButton for new question
+}
 
-  // Append score and next button
-  const gameDiv = document.getElementById('game');
-  const gameContainerDiv = document.getElementById('game-container');
-  gameDiv.insertAdjacentHTML('beforebegin', `<p id="score" class="text-center">Score: ${score} / ${totalQuestions}</p>`);
-  // gameContainerDiv.insertAdjacentHTML('afterend', `<button id="nextButton" class="btn btn-secondary mt-3" onclick="nextQuestion()" disabled>Next Question</button>`);
+// window.checkAnswer = checkAnswer;
+// window.nextQuestion = nextQuestion;
+
+// Initial call to start the game
+generateQuestion();
+
+// Append score and next button
+const gameDiv = document.getElementById('game');
+const gameContainerDiv = document.getElementById('game-container');
+gameDiv.insertAdjacentHTML('beforebegin', `<p id="score" class="text-center">Score: ${score} / ${totalQuestions}</p>`);
+
+
+submitButton.addEventListener('click', () => {
+  console.log('event listener works for submit');
+  console.log(currentQuestion.correctDefinition);
+  console.log(currentQuestion.word);
+  checkAnswer(`${currentQuestion.name}`, `${currentQuestion.correctDefinition}`);
 });
 
+nextButton.addEventListener('click', () => {
+  nextQuestion(); // Proceed to next question after a second
+});
 
 // ***********************************************************************************
 // Tower game logic
@@ -624,6 +692,7 @@ function answer(correct) {
 
 // Initial tower update
 updateTower();
+});
 
 
 /*!
@@ -707,75 +776,3 @@ updateTower();
 })()
 
 
-// TOWER GAME
-// let tower = [];
-// let correctStreak = 0;
-// let incorrectStreak = 0;
-// let multiplier = 1;
-
-// function updateTower() {
-//     const towerElement = document.getElementById('tower');
-//     towerElement.innerHTML = ''; // Clear existing tower
-//     tower.forEach(floor => {
-//         const floorElement = document.createElement('div');
-//         floorElement.classList.add('floor', 'bg-success', 'my-1');
-//         if (floor.damaged) {
-//             floorElement.classList.remove('bg-success');
-//             floorElement.classList.add('bg-danger');
-//         }
-//         towerElement.appendChild(floorElement);
-//     });
-// }
-
-// function addFloor(multiplier) {
-//     for (let i = 0; i < multiplier; i++) {
-//         tower.push({ damaged: false });
-//     }
-//     updateTower();
-// }
-
-// function damageFloor() {
-//     if (tower.length > 0) {
-//         tower[tower.length - 1].damaged = true;
-//         updateTower();
-//     }
-// }
-
-// function removeFloor() {
-//     if (tower.length > 0) {
-//         tower.pop();
-//         updateTower();
-//     }
-// }
-
-// function answer(correct) {
-//     if (correct) {
-//         correctStreak++;
-//         incorrectStreak = 0;
-//         // Remove damage if exists
-//         if (tower.length > 0 && tower[tower.length - 1].damaged) {
-//             tower[tower.length - 1].damaged = false;
-//         }
-//         // Update multiplier based on streak
-//         if (correctStreak >= 20) multiplier = 5;
-//         else if (correctStreak >= 15) multiplier = 4;
-//         else if (correctStreak >= 10) multiplier = 3;
-//         else if (correctStreak >= 5) multiplier = 2;
-//         else multiplier = 1;
-
-//         addFloor(multiplier);
-//     } else {
-//         correctStreak = 0;
-//         incorrectStreak++;
-//         // Apply damage or remove a floor
-//         if (incorrectStreak >= 2) {
-//             removeFloor();
-//             incorrectStreak = 0; // Reset incorrect streak after removing a floor
-//         } else {
-//             damageFloor();
-//         }
-//     }
-// }
-
-// // Initial tower update
-// updateTower();

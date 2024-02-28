@@ -42,6 +42,13 @@ img {
   max-width: 100%;
 } 
 
+.multiplier-display {
+  text-align: center;
+  margin-bottom: 10px; /* Space between the multiplier display and the tower */
+  font-size: 1.2em; /* Larger text for the multiplier */
+  font-weight: bold; /* Make the multiplier stand out */
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
